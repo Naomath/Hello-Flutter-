@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:hello_rectangle/category.dart';
 
+import 'package:hello_rectangle/category_route.dart';
+
 
 //Hello rectangle
 /*
@@ -41,6 +43,8 @@ class HelloRectangle extends StatelessWidget {
 }
 */
 
+
+/*category widget
 const _categoryName = 'Cake';
 
 const _categoryIcon = Icons.cake;
@@ -71,5 +75,23 @@ class UnitConverterApp extends StatelessWidget {
   }
 
 }
+*/
 
+//category route
+void main(){
+  runApp(UnitConverterApp());
+}
+
+class UnitConverterApp extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Unit Converter',
+      home: CategoryRoute(),
+    );
+  }
+
+}
 

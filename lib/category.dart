@@ -28,8 +28,8 @@ class Category extends StatelessWidget {
         height: _rowHeight,
         child: InkWell(
           borderRadius: _borderRadius,
-          highlightColor: Colors.blue,
-          splashColor: Colors.amber,
+          highlightColor: Colors.teal,
+          splashColor: Colors.teal,
           onTap: () {
             print("I was tapped!");
           },
