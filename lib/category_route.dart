@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
 import 'package:hello_rectangle/category.dart';
+import 'package:hello_rectangle/unit.dart';
 
 final _backgroundColor = Colors.green[100];
 
 class CategoryRoute extends StatelessWidget {
-
   //コンストラクタ
   const CategoryRoute();
 
-  static const _categoryNames = <String> [
+  static const _categoryNames = <String>[
     'Length',
     'Area',
     'Mass',
@@ -30,26 +29,37 @@ class CategoryRoute extends StatelessWidget {
     Colors.red,
   ];
 
-
-  Widget _buildCategoryWidgets(List<Widget> categories) {
+  Widget _buildCategoryWidgets(List<Category> categories) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) => categories[index],
       itemCount: categories.length,
     );
   }
 
+  List<Unit> _retrieveUnitList(String categoryName) {
+    return List.generate(10, (int i) {
+      i += 1;
+      return Unit(
+        name: '$categoryName Unit $i',
+        conversion: i.toDouble(),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final categories = <Category>[];
 
-    for(var i = 0;i < _categoryNames.length; i++){
+    for (var i = 0; i < _categoryNames.length; i++) {
       categories.add(Category(
-          name: _categoryNames[i],
-          color: _baseColors[i],
-          iconLocation: Icons.cake));
+        name: _categoryNames[i],
+        color: _baseColors[i],
+        iconLocation: Icons.cake,
+        units: _retrieveUnitList(_categoryNames[i]),
+      ));
     }
 
-    final listView = Container(
+    var listView = Container(
       color: _backgroundColor,
       padding: EdgeInsets.symmetric(horizontal: 8.0),
       child: _buildCategoryWidgets(categories),
@@ -59,12 +69,8 @@ class CategoryRoute extends StatelessWidget {
       elevation: 0.0,
       title: Text(
         'Unit Converter',
-        style: TextStyle(
-          color:Colors.black,
-          fontSize: 30.0
-        ),
+        style: TextStyle(color: Colors.black, fontSize: 30.0),
       ),
-
       centerTitle: true,
       backgroundColor: _backgroundColor,
     );
@@ -74,5 +80,4 @@ class CategoryRoute extends StatelessWidget {
       body: listView,
     );
   }
-
 }
