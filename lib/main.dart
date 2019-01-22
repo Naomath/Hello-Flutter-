@@ -4,7 +4,6 @@ import 'package:hello_rectangle/category.dart';
 
 import 'package:hello_rectangle/category_route.dart';
 
-
 //Hello rectangle
 /*
 void main() {
@@ -43,7 +42,6 @@ class HelloRectangle extends StatelessWidget {
 }
 */
 
-
 /*category widget
 const _categoryName = 'Cake';
 
@@ -78,6 +76,7 @@ class UnitConverterApp extends StatelessWidget {
 */
 
 //category route
+/*
 void main(){
   runApp(UnitConverterApp());
 }
@@ -94,4 +93,26 @@ class UnitConverterApp extends StatelessWidget {
   }
 
 }
+*/
+void main() {
+  runApp(UnitConverterApp());
+}
 
+class UnitConverterApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Unit Converter',
+      theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: Colors.black,
+              displayColor: Colors.grey[600],
+            ),
+        primaryColor: Colors.grey[500],
+        textSelectionHandleColor: Colors.green[500],
+      ),
+      home: CategoryRoute(),
+    );
+  }
+}
